@@ -18,6 +18,11 @@ public class Brand {
     @ElementCollection
     List<String> urlImages;
 
+
+    public Integer getId() {
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

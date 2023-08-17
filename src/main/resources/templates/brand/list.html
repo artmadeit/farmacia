@@ -24,6 +24,10 @@
                     <img th:src="${brand.urlImages.size() > 0? brand.urlImages.get(0): ''}" alt="Imagen" width="100" height="100">
                 </td>
                 <td th:text="${brand.name}"></td>
+                <td>
+                    <a th:href="@{/marcas/{id}(id=${brand.id})}">Editar</a>
+                    <a th:href="@{/marcas/{id}/eliminar(id=${brand.id})}">X</a>
+                </td>
             </tr>
         </tbody>
     </table>

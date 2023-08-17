@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Editar marca</h1>
+
+    <form th:action="@{/marcas/{id}(id=${brandForm.id})}" th:object="${brandForm}" method="post">
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label for="description">Descripcion</label>
+            <textarea th:field="*{description}" id="description" cols="30" rows="2"></textarea>
+        </div>
+        <div>
+            <button>Guardar</button>
+        </div>
+    </form>    
+</body>
+</html>
