@@ -10,17 +10,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpServletResponse;
 import pe.edu.cibertec.farmacia.entities.Brand;
 import pe.edu.cibertec.farmacia.repositories.BrandRepository;
+import pe.edu.cibertec.farmacia.services.ReportService;
 
 @Controller
 @RequestMapping("marcas")
 public class BrandController {
 
     BrandRepository brandRepository;
+    ReportService reportService;
     
-    public BrandController(BrandRepository brandRepository) {
+    public BrandController(BrandRepository brandRepository, ReportService reportService) {
         this.brandRepository = brandRepository;
+        this.reportService = reportService;
     }
 
     @GetMapping
@@ -73,4 +77,11 @@ public class BrandController {
         brandRepository.deleteById(id);
         return "redirect:/marcas";
     }
+
+    @GetMapping("reporte")
+    public void downloadReport(HttpServletResponse response) {
+        reportService.downloadReport(response, "reporte_marcas.jasper");
+    }
+
+
 }
