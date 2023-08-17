@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Marcas</h1>
+
+    <a th:href="@{/marcas/registrar}">Registre nueva marca</a>
+    
     <table>
         <thead>
             <tr>
@@ -17,7 +20,9 @@
         </thead>
         <tbody>
             <tr th:each="brand : ${brands}">
-                <td><img th:src="${brand.urlImages.get(0)}" alt="Imagen" width="100" height="100"></td>
+                <td>
+                    <img th:src="${brand.urlImages.size() > 0? brand.urlImages.get(0): ''}" alt="Imagen" width="100" height="100">
+                </td>
                 <td th:text="${brand.name}"></td>
             </tr>
         </tbody>

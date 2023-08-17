@@ -14,12 +14,24 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String name;
-    String descripcion;
+    String description;
     @ElementCollection
     List<String> urlImages;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<String> getUrlImages() {
